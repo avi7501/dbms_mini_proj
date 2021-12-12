@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<head>
+    <title>sign up</title>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+</head>
+
+<body style="background-image:linear-gradient(-90deg,rgb(33, 201, 223),rgb(126, 243, 30))">
+   
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">VCARE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">find a doctor</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             departments
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+              <li><hr class="dropdown-divider" ></li>
+              <li><a class="dropdown-item" href="#">general</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">pediactric</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">dermatology</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">about us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">contact us</a>
+          </li>
+        </ul>      
+      </div>
+      <ul class="nav navbar-nav navbar-right ">
+        <li class="nav-item"><a href="/signup" class='btn btn-lg btn-primary' id='signup' style='margin-right:30px;border-radius:30px;background-color:aquamarine;border:none;color:black;width:100px;'>sign up</a></li>
+        <li class="nav-item"><a href="/login" class='btn btn-lg btn-primary' style='border-radius:30px;background-color:aquamarine;border:none;color:black;width:100px;' id='login'>login</a></li>      
+      </ul>
+      
+    </div>
+  </nav>
+  <h1>WELCOME   {un} !!!!</h1>
+</body>
+</html>
