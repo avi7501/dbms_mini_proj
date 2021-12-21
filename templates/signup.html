@@ -4,8 +4,11 @@
         <title>sign up</title>       
         <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
         <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+
     </head>
-    <body style="background-image:linear-gradient(-90deg,rgb(33, 201, 223),rgb(126, 243, 30))">
+    <body style="background-color:rgb(56, 58, 65)">
   <header> 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
@@ -43,8 +46,8 @@
         </ul>      
       </div>
       <ul class="nav navbar-nav navbar-right ">
-        <li class="nav-item"><a href="/signup" class='btn btn-lg btn-primary' id='signup' style='margin-right:30px;border-radius:30px;background-color:aquamarine;border:none;color:black;width:100px;'>sign up</a></li>
-        <li class="nav-item"><a href="/login" class='btn btn-lg btn-primary' style='border-radius:30px;background-color:aquamarine;border:none;color:black;width:100px;' id='login'>login</a></li>      
+        <li class="nav-item"><a href="/signup" class='btn btn-lg btn-primary l' id='signup' style='margin-right:30px;border-radius:30px;background-color:aquamarine;border:none;color:black;width:100px;'>sign up</a></li>
+        <li class="nav-item"><a href="/login" class='btn btn-lg btn-primary s' style='border-radius:30px;background-color:aquamarine;border:none;color:black;width:100px;' id='login'>login</a></li>      
       </ul>
       
     </div>
@@ -52,23 +55,23 @@
   </header>
           <div class="page-content">     
            <form method="post" action="/signup/">
-              <div class="card text-white  " style="max-width: 540px; margin:auto;margin-top:100px;background-color:rgb(34, 28, 28)">
+              <div class="card text-white  " style="max-width: 540px; margin:auto;margin-top:100px;background-color:rgb(46, 45, 56)">
                 <div class="row g-0">
                   <div class="col-xl-auto">
                     <img src="{{ url_for('static',filename='images/cardpic (Custom).jpg') }}" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-xl-7">
                     <div class="card-body ">
-                      <h5 class="card-title">Sign Up</h5>
-                      <p class="card-text"><input class="input--style-3 " style="background-color:rgb(88, 84, 84);color: white;" onclick="blur" type="text" placeholder="name" name="name"></p>
-                      <p class="card-text"><input class="input--style-3 " style="background-color:rgb(88, 84, 84);color: white;" onclick="blur" type="text" placeholder="dob" name="dob" ></p>
-                      <p class="card-text"><input class="input--style-3 " style="background-color:rgb(88, 84, 84);color: white;" onclick="blur" type="text" placeholder="username" name="uname"></p>
-                      <p class="card-text"><input class="input--style-3 " style="background-color:rgb(88, 84, 84);color: white;" onclick="blur" type="text" placeholder="email" name="email"></p>
-                      <p class="card-text"><input class="input--style-3 " style="background-color:rgb(88, 84, 84);color: white;" onclick="blur" type="text" placeholder="phone" name="phone"></p>
-                      <p class="card-text"><input class="input--style-3 " style="background-color:rgb(88, 84, 84);color: white;" onclick="blur" type="text" placeholder="address" name="address"></p>
-                      <p class="card-text"><input class="input--style-3 " style="background-color:rgb(88, 84, 84);color: white;" onclick="blur" type="password" placeholder="password" name="pwd"></p>
-                      <p class="card-text"><input class="input--style-3 " style=" background-color:rgb(88, 84, 84);color: white;" onclick="blur" type="password"placeholder="confirm password" name="cpwd"></p>
-                      <p class="card-text"><input class="input--style-3 " style='margin-top:30px;border-radius:30px;background-color:aquamarine;border:none;color:black;width:100px;'  onclick="blur" type="submit" name="submit"></p>
+                      <h3 class="card-title">sign up</h3>
+                      <p class="card-text"><input class="input--style-3 " style="border:none;background-color:rgb(88, 84, 84);color: white;"   type="text" placeholder="  name" name="name"></p>
+                      <p class="card-text"><input class="input--style-3 " style="border:none;background-color:rgb(88, 84, 84);color: white;"   type="text" placeholder="  dob" name="dob" ></p>
+                      <p class="card-text"><input class="input--style-3 " style="border:none;background-color:rgb(88, 84, 84);color: white;"   type="text" placeholder="  username" name="uname"></p>
+                      <p class="card-text"><input class="input--style-3 " style="border:none;background-color:rgb(88, 84, 84);color: white;"   type="text" placeholder="  email" name="email"></p>
+                      <p class="card-text"><input class="input--style-3 " style="border:none;background-color:rgb(88, 84, 84);color: white;"   type="text" placeholder="  phone" name="phone"></p>
+                      <p class="card-text"><input class="input--style-3 " style="border:none;background-color:rgb(88, 84, 84);color: white;"   type="text" placeholder="  address" name="address"></p>
+                      <p class="card-text"><input class="input--style-3 " style="border:none;background-color:rgb(88, 84, 84);color: white;"   type="password" placeholder="  password" name="pwd"></p>
+                      <p class="card-text"><input class="input--style-3 " style="border:none;background-color:rgb(88, 84, 84);color: white;"   type="password"placeholder="  confirm password" name="cpwd"></p>
+                      <p class="card-text"><input class="input--style-3 " style='margin-top:30px;border-radius:30px;border:none;background-color:aquamarine;border:none;color:black;width:100px;height:50px;'type="submit" name="submit"></p>
                     </div> 
                   </div>
                 </div>

@@ -89,5 +89,4 @@ def pprof():
     row=row.fetchall()
     return render_template('profile.html',un=uname)
 
-
 app.run(debug=True)
