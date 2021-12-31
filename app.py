@@ -3,16 +3,16 @@ import sqlite3
 
 app = Flask(__name__, static_folder='static')
 id = 1
-conn = sqlite3.connect('login.db')
-conn.execute('''
+con = sqlite3.connect('login.db')
+con.execute('''
     CREATE TABLE IF NOT EXISTS LOGIN(
     U_NAME VARCHAR2(10) PRIMARY KEY,
     PWD VARCHAR2(10) NOT NULL,
     TYPE  VARCHAR2(10) NOT NULL);    
          ''')
-conn.execute('''
+con.execute('''
     CREATE TABLE IF NOT EXISTS PATIENT(
-    PAT_ID NUMBER(10) PRIMARY KEY,
+    PAT_ID INTEGER PRIMARY KEY AUTOINCREMENT,
     PAT_NAME VARCHAR2(10) NOT NULL,
     U_NAME VARCHAR2(10) NOT NULL,
     PWD VARCHAR2(10) NOT NULL,
@@ -22,7 +22,7 @@ conn.execute('''
     PAT_EMAIL VARCHAR2(20) NOT NULL);
 
 ''')
-conn.close()
+con.close()
 
 
 @app.route('/')
@@ -36,11 +36,8 @@ def signup():
     return render_template('signup.html')
 
 
-@app.route('/signup/', methods=['POST'])
+@app.route('/signup/', methods=['GET','POST'])
 def register():
-     global id
-     id =id+1
-     PAT_ID = str(id)
      PAT_NAME=request.form["name"]
      PAT_DOB=request.form["dob"]
      U_NAME=request.form["uname"]
@@ -51,7 +48,7 @@ def register():
     #  return PAT_ID+PAT_NAME+PAT_DOB+U_NAME+PAT_EMAIL+PAT_PHONE+PAT_ADDRESS+PAT_PWD,render_template('login.html')
      conn = sqlite3.connect('login.db')
      conn.execute('INSERT INTO LOGIN(U_NAME,PWD,TYPE) VALUES("'+U_NAME+'","'+PWD+'","PATIENT");')
-     conn.execute('INSERT INTO PATIENT VALUES("'+PAT_ID+'","'+PAT_NAME+'","'+U_NAME+'","'+PWD+'","'+PAT_DOB+'","'+PAT_ADDRESS+'","'+PAT_PHONE+'","'+PAT_EMAIL+'");')
+     conn.execute('INSERT INTO PATIENT (PAT_NAME,U_NAME,PWD,PAT_DOB,PAT_ADDRESS,PAT_PHONE,PAT_EMAIL) VALUES("'+PAT_NAME+'","'+U_NAME+'","'+PWD+'","'+PAT_DOB+'","'+PAT_ADDRESS+'","'+PAT_PHONE+'","'+PAT_EMAIL+'");')
      conn.commit()
      conn.close()
      return render_template('login.html')
@@ -63,14 +60,17 @@ def login():
 
 @app.route('/login/',methods=['POST'])
 def signin():
+    
     con=sqlite3.connect("login.db")
     uname=request.form["uname"]
     pwd=request.form["pwd"]
     cur=con.cursor()
-    row=cur.execute("SELECT U_NAME,PWD FROM LOGIN WHERE U_NAME='{un}' AND PWD='{pw}'".format(un=uname,pw=pwd))
-    row=row.fetchall()
-    if len(row)==1:
-        return ("loggedin")
+    cur.execute("SELECT U_NAME,PWD FROM LOGIN WHERE U_NAME='{un}' AND PWD='{pw}'".format(un=uname,pw=pwd))
+    acc=cur.fetchall()
+    if len(acc)==1:
+        cur.execute("SELECT *FROM PATIENT WHERE U_NAME='{un}' AND PWD='{pw}'".format(un=uname,pw=pwd))
+        pdata=cur.fetchall()        
+        return render_template('profile.html',pdata=pdata)
     else:
         return ("error")
    
@@ -78,15 +78,16 @@ def signin():
 @app.route('/profile')
 def profile():
     return render_template('profile.html')
+     
 
-@app.route('/profile', methods=['GET','POST'])
-def pprof():
-    con=sqlite3.connect("login.db")
-    uname=request.form["uname"]
-    pwd=request.form["pwd"]
-    cur=con.cursor()
-    row=cur.execute("SELECT * FROM PATIENT WHERE U_NAME='{un}' AND PWD='{pw}'".format(un=uname,pw=pwd))
-    row=row.fetchall()
-    return render_template('profile.html',un=uname)
+# @app.route('/profile/', methods=['GET','POST'])
+# def pprof():
+#     con=sqlite3.connect("login.db")
+#     uname=request.form["uname"]
+#     pwd=request.form["pwd"]
+#     cur=con.cursor()
+#     row=cur.execute("SELECT * FROM PATIENT WHERE U_NAME='{un}' AND PWD='{pw}'".format(un=uname,pw=pwd))
+#     row=row.fetchall()
+    #     return '/profile'
 
 app.run(debug=True)

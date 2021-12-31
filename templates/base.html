@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+  {% block head %}
+  <title>{% block title %}{% endblock %} </title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/card.css') }}">  
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/bootsrap-grid.rtl.min.css') }}">
+
+  <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}"></script> 
+  <script src="{{ url_for('static',filename='js/dropdown.js') }}"></script> 
+  <script src="{{ url_for('static',filename='js/carousel.js') }}"></script> 
+  <script src="{{ url_for('static',filename='js/aos.js') }}"></script> 
+  {% endblock %}
+
+</head>
+<body style="background-color:rgb(56, 58, 65)" >
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">VCARE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">find a doctor</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             departments
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+              <li><hr class="dropdown-divider" ></li>
+              <li><a class="dropdown-item" href="#">general</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">pediactric</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">dermatology</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">about us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">contact us</a>
+          </li>
+        </ul>      
+      </div>
+      <ul class="nav navbar-nav navbar-right ">
+        <li class="nav-item"><a href="/signup" class='btn btn-lg btn-primary' id='signup' style='margin-right:30px;border-radius:30px;background-color:aquamarine;border:none;color:black;width:100px;'>sign up</a></li>
+        <li class="nav-item"><a href="/login" class='btn btn-lg btn-primary' style='border-radius:30px;background-color:#7fffd4;border:none;color:black;width:100px;' id='login'>login</a></li>      
+      </ul>
+      
+    </div>
+  </nav>
+ </header>
+ {% block content %}
+ {% endblock %}
+</body>
+
+</html>
