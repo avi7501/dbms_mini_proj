@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block head %}
+
+{{ super() }}
+{% endblock %}
+{% block content %}
+<h1 style="margin-top:100px;margin-left:50px;">General Practice</h1>
+<div class="card "style="margin-left:50px;">
+    <div class="card-image" >
+        <div class="col">
+            <img src="{{url_for('static',filename='images/gp.jpg')}}" >
+        </div>
+    </div>
+    <div class="card-text">
+        <div class="col" style="width:300px;margin-top:30px;">
+            The General Practice Department continues to be the Nerve Center of the VCARE. Individual experiences range from 5-30 years, some with additional skills in Surgery, ENT, Pain Management, Anesthesia, Pulmonology, OB/GYN, Infection Control & Health Promotion, Kidney Dialysis, Leprosy Care, Anti-Smoking Campaign, Community Clinics, Counseling, Leadership and Management. The GPs run the Urgent Care Unit, attend on out-patients and also admit in-patients to the ward if necessary. Our members stretch from the Far East to the United Kingdom, speaking English, Arabic, Hindi, Telugu, Tamil, Malayalam, Urdu etc.
+        </div>
+    </div>
+        
+        
+    
+
+</div>
+
+
+{% endblock %}

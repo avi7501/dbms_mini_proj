@@ -1,0 +1,41 @@
+{% extends "ddashbase.html" %}
+{% block head %}
+{% block title %}{% endblock %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+
+
+<h1 style="font-family:sans-serif; color:#282828"> DOCTOR DETAILS</h1>
+<div class="row">
+    <div class="col">
+        <div class="card" style="background-color:aquamarine;width:400px;display:inline-flex;margin-right:20px;;">
+            <div class="card-body">
+                <h5 class="card-title">Basic Account Info</h5>
+                <p class="card-text">Doctor ID: {{ddata[0][0]}}</p>
+                <p class="card-text">Name: {{ddata[0][1]}}</p>
+                <p class="card-text">Username: {{ddata[0][8]}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="background-color:aquamarine;width:400px;display:inline-flex;">
+            <div class="card-body">
+                <h5 class="card-title">Contact Info</h5>
+                <p class="card-text">Email: {{ddata[0][8]}}</p>
+                <p class="card-text">Phone No.: {{ddata[0][7]}}</p>
+                <p class="card-text">Salary: {{ddata[0][6]}}</p>
+                <p class="card-text">Experience:{{ddata[0][5]}}</p>
+                <p class="card-text">Gender:{{ddata[0][4]}}</p>
+                <p class="card-text">Department:{{ddata[0][3]}}</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <img class="fluid "
+            style="border-radius:100%;margin-top:30px;margin-left:90px;width:200px;height:200px;display:inline-flex;"
+            src="{{url_for('static',filename='images/user.profile.png')}}">
+    </div>
+</div>
+{% endblock content %}

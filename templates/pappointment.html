@@ -1,0 +1,29 @@
+{% extends "dashbase.html" %}
+{% block head %}
+{% block title %}{% endblock %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<h1>welcome {{session.name}}</h1>
+<!-- <div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                Department:
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    {% for i in deps %}
+                    <option value="{{i[0]}}">{{i[0]}}</option>
+                    {% endfor %}
+                  </select>
+            </div>
+        </div>
+    </div>
+</div> -->
+Departments:
+<div class="row">
+    <div class="col"><a href="/vgeneral" class='btn btn-lg btn-primary' style='margin-right:30px;border-radius:30px;background-color:aquamarine;border:none;color:black;width:200px;'>General</a></div>
+    <div class="col"><a href="/vpediatric" class='btn btn-lg btn-primary' style='margin-right:30px;border-radius:30px;background-color:aquamarine;border:none;color:black;width:200px;'>Pediactric</a></div>
+    <div class="col"><a href="/vdermatology" class='btn btn-lg btn-primary' style='margin-right:30px;border-radius:30px;background-color:aquamarine;border:none;color:black;width:200px;'>Dermatology</a></div>
+</div>
+{% endblock content %}

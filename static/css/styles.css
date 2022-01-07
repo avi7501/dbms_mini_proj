@@ -103,3 +103,7 @@
   margin-top: 0.25em;
 }
 
+@font-face{
+  font-family: trial;
+  src: url_for('static', filename='static/fonts/Pacifico/Pacifico-Regular.ttf');
+}

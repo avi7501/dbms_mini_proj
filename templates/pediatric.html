@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block head %}
+
+{{ super() }}
+{% endblock %}
+{% block content %}
+<h1 style="margin-top:100px;margin-left:50px;">Pediactric</h1>
+<div class="card w-75" style="margin-left:50px;">
+    <div class="card-image" >
+        <div class="col">
+            <img src="{{url_for('static',filename='images/pediatric.jpg')}}" >
+        </div>
+    </div>
+    <div class="card-text">
+        <div class="col" style="width:300px;margin-top:30px;">
+            The Pediatrics Department in the VCARE is committed to providing family-centered healthcare services.  With trustworthy, compassionate and skilled healthcare professionals, we provide a wide range of services to all children - from birth till their 14th birthday.And parents with healthcare needs for their small children can approach us, at these places, at any time.
+        </div>
+    </div>
+       
+  
+
+</div>
+
+{% endblock %}
