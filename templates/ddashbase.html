@@ -1,69 +1,89 @@
 <!DOCTYPE html>
+
 <head>
-  {% block head %}
-  <title>{% block title %}{% endblock %} </title>
-  <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static',filename='css/card.css') }}">    
-  <link rel="stylesheet" href="{{ url_for('static',filename='css/sidebars.css') }}">
+    {% block head %}
+    <title>{% block title %}{% endblock %} </title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/card.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/sidebars.css') }}">
 
-  <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}"></script> 
-  <script src="{{ url_for('static',filename='js/dropdown.js') }}"></script> 
-  <script src="{{ url_for('static',filename='js/carousel.js') }}"></script> 
-  <script src="{{ url_for('static',filename='js/sidebar.js') }}"></script> 
-  <script src="{{ url_for('static',filename='js/jquery.spec.js') }}"></script> 
-  {% endblock %}
+    <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/dropdown.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/carousel.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/sidebar.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery.spec.js') }}"></script>
+    {% endblock %}
 
+    <style>
+        #body::-webkit-scrollbar {
+            width: 10px;
+            background-color: #212529;
+        }
+
+        #body::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px #212529;
+        }
+
+
+        #body::-webkit-scrollbar-thumb {
+            background-color: aquamarine;
+        }
+    </style>
 </head>
-<body>
-  <div class="container-fluid">
-    <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span  class="fs-5 d-none d-sm-inline"><h1>VCARE</h1></span>
-                </a>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    
-                    <li>
-                        <a href="/ddashboard" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline" style="color:aquamarine">Dashboard</span></a>
-                    </li>                   
-                    <li>
-                        <a href="/dvisit"fs-4 bi-table" class="nav-link px-0 align-middle"><span class="ms-1 d-none d-sm-inline" style="color:aquamarine">Visits Comming Up</span></a>
-                    </li>                
-                   
-                    <!-- <li>
-                        <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline" style="color:aquamarine">Billing</span></a>
-                    </li> -->
-                    
-            
-                </ul>
-                <hr>
-                <div class="dropdown pb-4">
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{url_for('static',filename='images/user.profile.png')}}" width="30" height="30" class="rounded-circle">
-                        <span class="d-none d-sm-inline mx-1">{{session.name}}</span>
+
+<body id="body">
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark fixed-top ">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a href="/"
+                        class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-5 d-none d-sm-inline">
+                            <h1 style="color:aquamarine;">VCARE</h1>
+                        </span>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                        id="menu">
+
                         <li>
-                            <hr class="dropdown-divider">
+                            <a href="/ddashboard" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline"
+                                    style="color:white;">Dashboard</span></a>
                         </li>
-                        <li><a class="dropdown-item" href="/home">Log out</a></li>
+                        <li>
+                            <a href="/dvisit" class="nav-link px-0 align-middle"><span class="ms-1 d-none d-sm-inline"
+                                    style="color:white;">Visits Comming Up</span></a>
+                        </li>
+                        <li>
+                            <a href="/dapppointment" class="nav-link px-0 align-middle"><span
+                                    class="ms-1 d-none d-sm-inline" style="color:white;">Discharge</span></a>
+                        </li>
                     </ul>
+                    <hr>
+                    <div class="dropdown pb-4">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% if dp %}
+                            <img src="{{url_for('static',filename=dp)}}" width="30" height="30" class="rounded-circle">
+                            {% endif %}
+                            <span class="d-none d-sm-inline mx-1">{{session.name}}</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+
+                            <li><a class="dropdown-item" href="/home">Log out</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            <div class="col py-3" style="margin-left:250px;margin-right:50px;">
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
-        <div class="col py-3">
-          {% block content %}
-      {% endblock %}
-        </div>
-      </div>
     </div>
 
-      
+
 </body>
+
 </html>

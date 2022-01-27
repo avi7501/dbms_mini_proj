@@ -1,48 +1,6 @@
-/* .flip-card {
-    background-color: transparent;
-    width: 400px;
-    height: 500px;
-    border-radius:30px;
-    
-  } 
-  .flip-card-inner {
-    position: relative;
-    width: 400px;
-    height: 500px;
-    border-radius:30px;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
 
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    height: 500px !important;
-    width: 400px !important;
-    backface-visibility: hidden;
-  }
-  
-  .flip-card-front {
-    background-color: #bbb;
-    border-radius:30px;
-    color: black;
-  }
-  
-  .flip-card-back {
-    background-color: dodgerblue;
-    border-radius:30px;
-    color: white;
-    transform: rotateY(180deg);
-  } */
-
-.l:hover{
-  background-color:rgb(87, 202, 164)!important
+.l:hover {
+  background-color: rgb(87, 202, 164) !important;
 }
 
 .image {
@@ -62,7 +20,7 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
   color: #ffffff;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,12 +35,11 @@
 
 .image__overlay--primary {
   background: aquamarine;
-  
 }
 
 .image__overlay > * {
   transform: translateY(20px);
-  transition: transform 0.25s;
+  transition: transform 1000 s ease;
 }
 
 .image__overlay:hover {
@@ -103,7 +60,10 @@
   margin-top: 0.25em;
 }
 
-@font-face{
+@font-face {
   font-family: trial;
-  src: url_for('static', filename='static/fonts/Pacifico/Pacifico-Regular.ttf');
+  src: url_for(
+    "static",
+    filename= "static/fonts/Pacifico/Pacifico-Regular.ttf"
+  );
 }

@@ -4,7 +4,6 @@
 {{ super() }}
 {% endblock %}
 {% block content %}
-<h1>welcome {{session.name}}</h1>
 <!-- <div class="row">
     <div class="col">
         <div class="row">
@@ -20,10 +19,51 @@
         </div>
     </div>
 </div> -->
-Departments:
-<div class="row">
-    <div class="col"><a href="/vgeneral" class='btn btn-lg btn-primary' style='margin-right:30px;border-radius:30px;background-color:aquamarine;border:none;color:black;width:200px;'>General</a></div>
-    <div class="col"><a href="/vpediatric" class='btn btn-lg btn-primary' style='margin-right:30px;border-radius:30px;background-color:aquamarine;border:none;color:black;width:200px;'>Pediactric</a></div>
-    <div class="col"><a href="/vdermatology" class='btn btn-lg btn-primary' style='margin-right:30px;border-radius:30px;background-color:aquamarine;border:none;color:black;width:200px;'>Dermatology</a></div>
+
+<div class="container" style="margin-top:20px;margin-left:50px;">
+    <h3>Departments:</h3>
+    <div class="row">
+        <div class="col" style="max-width:300px;height:200px;padding:0px;"><a href="/vgeneral"
+                class='btn btn-lg btn-primary '
+                style='background:rgba(0,0,0,0.7)url("static/images/vgeneral.jpg");background-blend-mode:darken;margin-right:30px;border-radius:0px;border:none;color:aquamarine;width:300px;height:200px;'>General</a>
+        </div>
+        <div class="col" style="max-width:300px;height:200px;padding:0px;"><a href="/vpediatric"
+                class='btn btn-lg btn-primary'
+                style='background:rgba(0,0,0,0.7)url("static/images/vpediatric.jpg");background-blend-mode:darken;margin-right:30px;border-radius:0px;border:none;color:aquamarine;width:300px;height:200px;'>Pediactric</a>
+        </div>
+        <div class="col" style="max-width:300px;height:200px;padding:0px;"><a href="/vdermatology"
+                class='btn btn-lg btn-primary'
+                style='background:rgba(0,0,0,0.7)url("static/images/vdermatology.jpg");background-blend-mode:darken;margin-right:30px;border-radius:0px;border:none;color:aquamarine;width:300px;height:200px;'>Dermatology</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="max-width:300px;height:200px;padding:0px;"><a href="/vcardiology"
+                class='btn btn-lg btn-primary'
+                style='background:rgba(0,0,0,0.7)url("static/images/vcardiology.jpg");background-blend-mode:darken;margin-right:30px;border-radius:0px;border:none;color:aquamarine;width:300px;height:200px;'>Cardiology</a>
+        </div>
+        <div class="col" style="max-width:300px;height:200px;padding:0px;"><a href="/vENT"
+                class='btn btn-lg btn-primary'
+                style='background:rgba(0,0,0,0.7)url("static/images/vENT.jpg");background-blend-mode:darken;margin-right:30px;border-radius:0px;border:none;color:aquamarine;width:300px;height:200px;'>ENT</a>
+        </div>
+        <div class="col" style="max-width:300px;height:200px;padding:0px;"><a href="/vdental"
+                class='btn btn-lg btn-primary'
+                style='background:rgba(0,0,0,0.7)url("static/images/vdental.jpg");background-blend-mode:darken;background-blend-mode:darken;margin-right:30px;border-radius:0px;border:none;color:aquamarine;width:300px;height:200px;'>Dental</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="max-width:300px;height:200px;padding:0px;"><a href="/vopthamology"
+                class='btn btn-lg btn-primary'
+                style='background:rgba(0,0,0,0.7)url("static/images/vopthamology.jpg");background-blend-mode:darken;margin-right:30px;border-radius:0px;border:none;color:aquamarine;width:300px;height:200px;'>Opthamology</a>
+        </div>
+        <div class="col" style="max-width:300px;height:200px;padding:0px;"><a href="/vinternal"
+                class='btn btn-lg btn-primary'
+                style='background:rgba(0,0,0,0.7)url("static/images/vinternal.jpg");background-blend-mode:darken;margin-right:30px;border-radius:0px;border:none;color:aquamarine;width:300px;height:200px;'>Internal
+                Medicine</a></div>
+        <div class="col" style="max-width:300px;height:200px;padding:0px;"><a href="/vsurgery"
+                class='btn btn-lg btn-primary'
+                style='background:rgba(0,0,0,0.7)url("static/images/vsurgery.jpg");background-blend-mode:darken;margin-right:30px;border-radius:0px;border:none;color:aquamarine;width:300px;height:200px;'>Surgery</a>
+        </div>
+    </div>
 </div>
+
 {% endblock content %}

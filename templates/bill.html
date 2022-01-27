@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Bill PDF</title>
+    <style>
+        * {
+            padding: none;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <header style="background-color:#212529;margin-bottom:30px;color:white;padding-bottom:20px; ">
+        <div>
+            <h1 style="font-size:80px;font-family:'Helvetica Neue',;margin-left:20px;color:aquamarine">VCARE</h1>
+        </div>
+        <div style="margin-left:1000px;">
+            <div>VCARE</div>
+            <div>455 Foggy Heights, AZ 85004, US</div>
+            <div>(602) 519-0450</div>
+            <div><a style="color:aquamarine;" href="mailto:healthcare@vcare.com">healthcare@vcare.com</a></div>
+        </div>
+        </div>
+    </header>
+    <!-- <hr style="margin-top:20px;"> -->
+    <main>
+        <div>
+            <div>
+
+
+                <h2 style="display:inline;margin-left:50px;" class="name">Patient Name: {{pat_name}}</h2>
+
+                <h2 style="display:inline;margin-left:240px;" class="name">Doctor Name: {{doc_name}}</h2>
+
+                <h2 style="display:inline;margin-left:200px;" class="name">Visit Type: {{visit_type}}</h2>
+
+
+
+
+                <!-- <div class="address">796 Silver Harbour, TX 79273, US</div>
+                <div class="email"><a href="mailto:john@example.com">john@example.com</a></div> -->
+            </div>
+            <div id="invoice">
+                <h1
+                    style="font-size:50px;color:aquamarine;font-family:'Helvetica Neue';--webkit-text-stroke:3px black;margin-left:500px;">
+                    VISIT BILL</h1>
+                <div class="date" style="font-size:25px;margin-left:50px;display:inline;"><b>Visit Time :
+                        {{visit_time}}</b>
+                </div>
+                <div class="text" style="font-size:25px;margin-left:50px;margin-top:20px;"><b>Department : {{dep}}</b>
+                </div>
+                <div class="text" style="font-size:25px;margin-left:50px;margin-top:20px;"><b>Diagnosis : {{diag}}</b>
+                </div>
+                <div class="text" style="font-size:25px;margin-left:50px;margin-top:20px">
+                    <b>Prescription : {{pres}}</b>
+                </div>
+            </div>
+
+        </div>
+        <table
+            style="margin-top:50px;width:1200px;font-size:30px;border: 1px solid;margin-left:50px;border-color:black;">
+            <thead style="background-color:#212529;color:white;">
+                <tr>
+                    <th class="no">#</th>
+                    <th class="desc">DESCRIPTION</th>
+                    <th class="price"> PRICE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="no">01</td>
+                    <td class="desc">
+                        Consultancy charges
+                    </td>
+
+
+                    <td class="price">${{consult}}.0</td>
+                </tr>
+                <tr style="justify-content:center">
+                    <td class="no">02</td>
+                    <td class="desc">
+                        Additional Test Charges
+                    </td>
+
+
+                    <td class="price">${{addfee}}.0</td>
+                </tr>
+                <tr>
+                    <td class="no">03</td>
+                    <td class="desc">
+                        Convenience Fees
+                    </td>
+
+
+                    <td class="price">$15.0</td>
+                </tr>
+            </tbody>
+            <tfoot>
+
+                <tr>
+
+                    <td colspan="1"></td>
+                    <td colspan="1">GRAND TOTAL</td>
+                    <td>${{totalfee}}</td>
+                </tr>
+            </tfoot>
+        </table>
+        <h1 style="font-size:40px;margin-left:600px;margin-top:30px;">Thank you!</h1>
+        <div id="notices">
+            <div>NOTICE:</div>
+            <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+        </div>
+    </main>
+    <footer>
+        Invoice was created on a computer and is valid without the signature and seal.
+    </footer>
+
+</body>
+
+</html>

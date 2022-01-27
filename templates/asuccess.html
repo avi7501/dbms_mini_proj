@@ -1,0 +1,11 @@
+{% extends "adashbase.html" %}
+{% block head %}
+{% block title %}{% endblock %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<h1>CONGRATS!!! You have successfully added a doctor</h1>
+<a href="/adashboard" class='btn btn-lg btn-primary'
+    style='border-radius:30px;background-color:#7fffd4;border:none;color:black;width:200px;height:200px;align-content: center;'>Back
+    to Dashboard</a>
+{% endblock content %}

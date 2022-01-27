@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
 
-          <!-- <div class="page-content">     
+<!-- <div class="page-content">     
            <form method="POST" action="/signup/">
               <div class="card  text-white  " style="max-width: 540px; margin:auto;margin-top:100px;)">
                 <div class="row g-0">
@@ -32,132 +32,137 @@
           </div> -->
 
 <div class="container-fluid">
-   <div class="row">
+  <div class="row">
     <div class="col" style="padding:0px;height:50%;width:100%">
-      <img class="fluid rounded" src="{{ url_for('static',filename='images/signup.jpg') }}"  style="height:690px;width:800px;padding:0;">
+      <img class="fluid rounded" src="{{ url_for('static',filename='images/signup.jpg') }}"
+        style="height:690px;width:800px;padding:0;">
     </div>
     <div class="col" style="padding:0px;height:50%;width:100%">
-      <h3 id="sh"style="margin-left:50px;margin-top:50px;">Sign Up </h3>
-      <form class="needs-validation"style="margin-left:50px;" method ="POST" action="/signup/"   oninput='confirmPassword.setCustomValidity(confirmPassword.value != newPassword.value ? true : false)' novalidate>
+      <h3 id="sh" style="margin-left:50px;margin-top:50px;">Sign Up </h3>
+      <form class="needs-validation" style="margin-left:50px;" method="POST" action="/signup/"
+        oninput='confirmPassword.setCustomValidity(confirmPassword.value != newPassword.value ? true : false)'
+        novalidate>
 
-        <div class='row'style="margin-top:30px;"> 
-          
+        <div class='row' style="margin-top:30px;">
+
           <div class='col'>
 
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" name="name" placeholder="Mike Sanders" required>
-            
+
           </div>
           <div class="col" style="margin-right: 40px;">
             <label for="uname" class="form-label">Username</label>
-        
-            <input type="text" class="form-control" id="uname"placeholder="@mike"  name="uname" required>
-          
-          </div>              
+
+            <input type="text" class="form-control" id="uname" placeholder="@mike" name="uname" required>
+
+          </div>
         </div>
-        <div class="row"style="margin-top:10px;" >              
+        <div class="row" style="margin-top:10px;">
           <div class="col">
             <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-          <input type="password" class="form-control" id="password" placeholder="rick@roll" name="pwd" required>
-         
+            <input type="password" class="form-control" id="password" placeholder="rick@roll" name="pwd" required>
+
           </div>
-          <div class="col"style="margin-right: 40px;">
-            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="rick@roll"" name="cpwd" placeholder="blazing@rickroll42" required>
-          
+          <div class="col" style="margin-right: 40px;margin-top:10px;">
+            <label for="inputPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="password" placeholder="rick@roll"" name=" cpwd"
+              placeholder="blazing@rickroll42" required>
+
           </div>
-         
+
         </div>
         <div class="row" style="margin-top:10px;">
           <div class="col">
             <label for="dob" class="form-label">DOB</label>
             <input type="date" class="form-control" id="dob" name="dob" required>
-          
-            
+
+
           </div>
-          <div class="col" style="margin-right: 40px;">            
-       
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" placeholder="mikesanders23@gmail.com"id="email" name="email" required>
-              
-         
+          <div class="col" style="margin-right: 40px;">
+
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="mikesanders23@gmail.com" id="email" name="email"
+              required>
+
+
           </div>
         </div>
         <div class="row" style="margin-top:10px;">
           <div class="col">
             <label for="phone" class="form-label">Phone No.</label>
             <input type="text" class="form-control" id="phone" name="phone" placeholder="9642902469" required>
-           
+
           </div>
-          <div class="col" style="margin-right: 40px;">     
-            <label for="gender" style="margin-bottom:10px;"class="form-label">Gender</label>
+          <div class="col" style="margin-right: 40px;">
+            <label for="gender" style="margin-bottom:10px;" class="form-label">Gender</label>
             <div class="row">
-              <div class="col"> <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender"  id="male value="male">
-                <label class="form-check-label"  >
-                  Male
-                </label>
-              </div>
-  
+              <div class="col">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                  <label class="form-check-label" for='male'>
+                    Male
+                  </label>
+                </div>
+
               </div>
               <div class="col">
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gender"  id="female" value="female">
-                  <label class="form-check-label" >
+                  <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                  <label for='female' class="form-check-label">
                     Female
                   </label>
                 </div>
               </div>
             </div>
-       
-           
-           
           </div>
         </div>
-       
-        <label for="address"style="margin-top:15px;"  class="form-label">Address</label>
-        <textarea class="form-control" id="address" style="width: 650px;" rows="3" placeholder="27 The Other St,Porters Lake,NS B3E 1H4, Canada" name="address"required></textarea>
+        <label for="address" style="margin-top:15px;" class="form-label">Address</label>
+        <textarea class="form-control" id="address" style="width: 650px;" rows="3"
+          placeholder="27 The Other St,Porters Lake,NS B3E 1H4, Canada" name="address" required></textarea>
         <!-- <input style="height: 100px;" type="area" class="form-control" placeholder="27 The Other St, Porters Lake,NS B3E 1H4, Canada" id="address" name="address" required> -->
-       
-            <div class="form-check">
-            <input style="margin-top:10px;"class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-            <label style="margin-top:10px;"class="form-check-label" for="invalidCheck">
-              Agree to terms and conditions
-            </label>
-            <div class="invalid-feedback">
-              You must agree before submitting.
-            </div>
+
+        <div class="form-check">
+          <input style="margin-top:10px;" class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+          <label style="margin-top:10px;" class="form-check-label" for="invalidCheck">
+            Agree to terms and conditions
+          </label>
+          <div class="invalid-feedback">
+            You must agree before submitting.
           </div>
-    
-          <input class="input--style-3 " style='margin-top:10px;border-radius:30px;border:none;background-color:aquamarine;border:none;color:black;width:100px;height:40px;'type="submit" name="submit">
-          <!-- <button class="btn btn-primary"  type="submit">Submit form</button> -->
+        </div>
 
-      </form>      
+        <input class="input--style-3 "
+          style='margin-top:10px;border-radius:30px;border:none;background-color:aquamarine;border:none;color:black;width:100px;height:40px;'
+          type="submit" name="submit">
+        <!-- <button class="btn btn-primary"  type="submit">Submit form</button> -->
+
+      </form>
     </div>
-  </div>        
-</div> 
+  </div>
+</div>
 
 
-<script> 
-   var forms = document.querySelectorAll('.needs-validation')
-  
+<script>
+  var forms = document.querySelectorAll('.needs-validation')
+
   Array.prototype.slice.call(forms)
-  .forEach(function (form) {
-  form.addEventListener('submit', function (event) {
-  if (!form.checkValidity()) {
-  event.preventDefault()
-  event.stopPropagation()  
-  
-  }
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
 
-  form.classList.add('was-validated')
-  }, false)
-  })
-</script> 
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+</script>
 <style>
-  body{
+  body {
     /* overflow-y: hidden; */
     overflow-x: hidden;
   }
 </style>
- {% endblock %}
+{% endblock %}

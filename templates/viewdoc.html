@@ -1,0 +1,36 @@
+{% extends "adashbase.html" %}
+{% block head %}
+{% block title %}{% endblock %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<table class="table table-striped table-bordered table-hover">
+    <tr>
+        <th>DOCTOR ID</th>
+        <th>NAME</th>
+        <th>USER NAME</th>
+        <th>DEPARTMENT</th>
+        <th>GENDER</th>
+        <th>EXPERIENCE</th>
+        <th>SALARY</th>
+        <th>PHONE</th>
+        <th>EMAIL</th>
+    </tr>
+    {% for i in docs %}
+    <tr>
+
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+        <td>{{i[5]}}</td>
+        <td>{{i[6]}}</td>
+        <td>{{i[7]}}</td>
+        <td>{{i[8]}}</td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock content %}

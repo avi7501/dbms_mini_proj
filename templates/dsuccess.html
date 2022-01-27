@@ -1,0 +1,14 @@
+{% extends "ddashbase.html" %}
+{% block head %}
+{% block title %}{% endblock %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<div class="container" style="margin-top:20px;margin-left:50px;">
+    <h1>CONGRATS!!! You have been successfully Diagnosed</h1>
+    <a href="/ddashboard" class='btn btn-lg btn-primary'
+        style='border-radius:30px;background-color:#7fffd4;border:none;color:black;width:200px;height:200px;align-content: center;'>Back
+        to Dashboard</a>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,89 @@
+{% extends "dashbase.html" %}
+{% block head %}
+{% block title %}{% endblock %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<div class="container" style="margin-top:20px;margin-left:50px;">
+    <form enctype="multipart/form-data" class="needs-validation" style="margin-left:50px;" method="POST"
+        action="/pprofile/"
+        oninput='confirmPassword.setCustomValidity(confirmPassword.value != newPassword.value ? true : false)'
+        novalidate>
+        <div class="row">
+            <div class="col">
+                <img class="fluid "
+                    style="border-radius:100%;margin-top:30px;margin-left:90px;width:200px;height:200px;display:inline-flex;"
+                    src="{{url_for('static',filename=dp)}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="file" name="profilePic" value="{{dp}}}}" accept="image/*">
+            </div>
+        </div>
+        {% for i in pdata %}
+        <div class='row' style="margin-top:30px;">
+            <div class='col'>
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" value="{{i[1]}}" required>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <div class="col">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <input type="password" class="form-control" id="password" value="{{pwd}}" name="pwd" required>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <div class="col" style="margin-right: 40px;">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="password" value="{{pwd}}" name=" cpwd"
+                    placeholder="blazing@rickroll42" required>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <div class="col">
+                <label for="dob" class="form-label">DOB</label>
+                <input type="date" class="form-control" id="dob" value="{{i[3]}}" name="dob" required>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <div class="col" style="margin-right: 40px;">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="password" value="{{pwd}}" name=" cpwd"
+                    placeholder="blazing@rickroll42" required>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <div class="col" style="margin-right: 40px;">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" value="{{i[7]}}" id="email" name="email" required>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <div class="col">
+                <label for="phone" class="form-label">Phone No.</label>
+                <input type="text" class="form-control" value="{{i[6]}}" id="phone" name="phone"
+                    placeholder="9642902469" required>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <div class="col">
+                <label for="address" style="margin-top:15px;" class="form-label">Address</label>
+                <textarea class="form-control" id="address" style="width: 650px;" rows="3"
+                    placeholder="27 The Other St,Porters Lake,NS B3E 1H4, Canada" name="address"
+                    required>{{i[5]}}</textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input class="input--style-3 "
+                    style='margin-top:10px;border-radius:30px;border:none;background-color:aquamarine;border:none;color:black;width:100px;height:40px;'
+                    type="submit" name="submit">
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endfor %}
+{% endblock content %}

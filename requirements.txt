@@ -1,4 +1,4 @@
-asgiref==3.4.1
+sgiref==3.4.1
 autopep8==1.6.0
 backports.entry-points-selectable==1.1.0
 click==8.0.3

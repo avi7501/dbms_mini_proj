@@ -1,0 +1,79 @@
+{% extends "dashbase.html" %}
+{% block head %}
+{% block title %}{% endblock %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<div class="container" style="margin-top:20px;margin-left:50px;">
+    <form class="needs-validation" method="post" action='/alldep/'>
+        <div class="row" style="max-width:500;margin-top:40px;">
+            <div class="col" style="max-height:500;">
+                <h3>Doctors:</h3>
+                <select class="form-select" style="width:500px;margin-top:30px;" name="dname"
+                    aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    {% for i in doc %}
+                    <option value="{{i[0]}}">{{i[0]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row" style="margin-top:40px;">
+            <h3>Date and Time:</h3>
+            <div class="col">
+                <label for="vdate" style="margin-top:40px;" class="form-label">Visit Date:</label>
+                <input type="date" min="25-01-2022" class="form-control" style="width:500px;margin-top:30px;" id="vdate"
+                    name="vdate" required>
+
+            </div>
+        </div>
+        <label style="margin-top:40px;">Visit Timings:</label>
+        <div class="row">
+            <div class="col">
+                <select class="form-select" style="width:500px;margin-top:30px;" name="vtime"
+                    aria-label="Default select example" required>
+                    <option style="background-color:rgb(48, 42, 42);color:white;" disabled selected>Timings</option>
+                    <option disabled style="background-color:rgb(241, 160, 38);color:black;">☀️Morning Time slots
+                    </option>
+                    {% for k in range(8,13) %}
+                    <option value="{{k}}:00:00">{{k}}:00 AM</option>
+                    <option value="{{k}}:30:00">{{k}}:30 AM</option>
+                    {% endfor %}
+                    <option disabled style="background-color:rgb(56, 30, 87);color:white;">🌙Evening Time slots</option>
+                    {% for k in range(2,10) %}
+                    <option value="{{k+12}}:00:00">{{k}}:00 PM
+                    </option>
+                    <option value="{{k+12}}:30:00">{{k}}:30 PM
+                    </option>
+                    {% endfor%}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input class="input--style-3 "
+                    style='margin-top:10px;border-radius:30px;border:none;background-color:aquamarine;border:none;color:black;width:100px;height:40px;'
+                    type="submit" name="submit">
+            </div>
+        </div>
+
+    </form>
+    <script>
+        var forms = document.querySelectorAll('.needs-validation')
+
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    </script>
+</div>
+
+{% endblock content %}

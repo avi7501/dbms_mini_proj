@@ -1,0 +1,53 @@
+{% extends "ddashbase.html" %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<div class="container" style="margin-top:20px;margin-left:50px;">
+    <h3>Walk-in Discharge</h3>
+    <form method="post" class="needs-validation" action="/dwalkin/">
+        <div class="row">
+            <div class="col">
+                <label for="pat_id" class="form-label">Patient Id:</label>
+                <input style='width:500px;' type="text" class="form-control" name="pat_id" placeholder="342" required>
+            </div>
+    <div class="row" style='margin-top:20px;'>
+        <div class="col">
+            <label for="tkno" class="form-label">Diagnosis</label>
+            <textarea style='width:800px;height:150px;' name='diagn' class="form-control" placeholder="Diagnosis"
+                required></textarea>
+        </div>
+    </div>
+    <div class="row" style='margin-top:20px;'>
+        <div class="col">
+            <label for="tkno" class="form-label">Prescription</label>
+            <textarea style='width:800px;height:150px;' name='pres' class="form-control" placeholder="prescription"
+                required></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="consult" class="form-label">Consulation Fees : </label>
+            <input style='width:500px;' type="text" class="form-control" name="consult" placeholder="700" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="addfee" class="form-label">Additional Fees : </label>
+            <input style='width:500px;' type="text" class="form-control" name="addfee" placeholder="700" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">   
+            <input class="input--style-3 "
+                style='margin-top:60px;border-radius:30px;border:none;background-color:aquamarine;border:none;color:black;width:200px;height:80px;'
+                value='Discharge' type="submit" name="submit">
+        </div>
+    </div>
+    
+    
+    
+    </form>
+    </div>
+{% endblock content %}

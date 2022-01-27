@@ -1,0 +1,119 @@
+{% extends "adashbase.html" %}
+{% block head %}
+{% block title %}{% endblock %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<form enctype="multipart/form-data" class="needs-validation" style="margin-left:50px;" method="POST" action="/adddocs/"
+    oninput='confirmPassword.setCustomValidity(confirmPassword.value != newPassword.value ? true : false)' novalidate>
+    <div class="row">
+        <div class="col">
+            <img class="fluid "
+                style="border-radius:100%;margin-top:30px;margin-left:90px;width:200px;height:200px;display:inline-flex;"
+                src="{{url_for('static',filename='images/user.profile.png')}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <input type="file" name="profilePic" accept="image/*">
+        </div>
+    </div>
+
+    <div class='row' style="margin-top:30px;">
+        <div class='col'>
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" required>
+        </div>
+    </div>
+
+    <div class='row' style="margin-top:30px;">
+        <div class='col'>
+            <label for="name" class="form-label">User Name</label>
+            <input type="text" class="form-control" name="uname" required>
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col" style="margin-right: 40px;">
+            <label for="gender" style="margin-bottom:10px;" class="form-label">Gender</label>
+            <div class="row">
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                        <label class="form-check-label" for='male'>
+                            Male
+                        </label>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                        <label for='female' class="form-check-label">
+                            Female
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+        <div class="col">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="pwd" required>
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col" style="margin-right: 40px;">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="password" name=" cpwd" placeholder="blazing@rickroll42"
+                required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <select class="form-select" style="width:500px;margin-top:30px;" name="dep"
+                aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="general">General</option>
+                <option value="dermatology">Dermatology</option>
+                <option value="pediatric">Pediactric</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin-top:10px;">
+        <div class="col">
+            <label for="sal" class="form-label">Salary</label>
+            <input type="text" class="form-control" id="sal" name="sal" required>
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col" style="margin-right: 40px;">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col">
+            <label for="phone" class="form-label">Phone No.</label>
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="9642902469" required>
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col">
+            <label for="exp" style="margin-top:15px;" class="form-label">Experience</label>
+            <textarea class="form-control" id="address" style="width: 650px;" rows="3" name="exp" required></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <input class="input--style-3 "
+                style='margin-top:10px;border-radius:30px;border:none;background-color:aquamarine;border:none;color:black;width:100px;height:40px;'
+                type="submit" name="submit">
+        </div>
+    </div>
+</form>
+{% endblock content %}

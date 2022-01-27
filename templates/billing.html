@@ -1,0 +1,38 @@
+{% extends "dashbase.html" %}
+{% block head %}
+{% block title %}{% endblock %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<div class="col" style="margin-top:20px;margin-left:50px;">
+    <h1>{{session.name}}'s VCARE Visits</h1>
+    <form action="/bill" method="post">
+        <table class="table table-bordered">
+            <tr>
+                <th>Token No</th>
+                <th>Visit Timing</th>
+                <th>Visit Type</th>
+                <th>Patient Name</th>
+                <th>Doctor Name</th>
+                <th>Department</th>
+                <th>Bill</th>
+
+            </tr>
+            {% for i in vdata %}
+            <tr>
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[4]}}</td>
+                <td>{{i[6]}}</td>
+                <td>{{i[7]}}</td>
+                <td><a href="/{{i[0]}}" style="color:aquamarine"> Downlad Bill PDF</a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </form>
+</div>
+
+
+{% endblock content %}
