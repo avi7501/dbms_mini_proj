@@ -1,0 +1,31 @@
+INSERT INTO DOCTOR ( DOC_NAME, U_NAME, DEP, DOC_GENDER, DOC_EXP, DOC_SALARY, DOC_PHONE, DOC_EMAIL)
+VALUES ('edwin','ed12','general','male','15 years of work experience',1200000,9843543456,'edwin45@gmail.com');
+INSERT INTO DOCTOR ( DOC_NAME, U_NAME, DEP, DOC_GENDER, DOC_EXP, DOC_SALARY, DOC_PHONE, DOC_EMAIL)
+VALUES ('mehta','meht32','dermatology','male','10 years of work experience',1500000,9945543456,'metha23@gmail.com');
+INSERT INTO DOCTOR ( DOC_NAME, U_NAME, DEP, DOC_GENDER, DOC_EXP, DOC_SALARY, DOC_PHONE, DOC_EMAIL)
+VALUES ('jenny','jenz','pediatric','female','16 years of work experience',2100000,9324456345,'jenny54@gmail.com');
+INSERT INTO DOCTOR ( DOC_NAME, U_NAME, DEP, DOC_GENDER, DOC_EXP, DOC_SALARY, DOC_PHONE, DOC_EMAIL)
+VALUES ('johnathan','john','ENT','male','12 years of work experience',1400000,9324544345,'john2@gmail.com');
+INSERT INTO DOCTOR ( DOC_NAME, U_NAME, DEP, DOC_GENDER, DOC_EXP, DOC_SALARY, DOC_PHONE, DOC_EMAIL)
+VALUES ('Gloria Borga','gloria','cardiology','female','15 years of work experience',1600000,9567768345,'gloria65@gmail.com');
+INSERT INTO DOCTOR ( DOC_NAME, U_NAME, DEP, DOC_GENDER, DOC_EXP, DOC_SALARY, DOC_PHONE, DOC_EMAIL)
+VALUES ('Thomas','tom','opthamology','male','17 years of work experience',1800000,9456756345,'tom32@gmail.com');
+INSERT INTO DOCTOR ( DOC_NAME, U_NAME, DEP, DOC_GENDER, DOC_EXP, DOC_SALARY, DOC_PHONE, DOC_EMAIL)
+VALUES ('Felix','pewds','surgery','male','18 years of work experience',1900000,9334985345,'pewds69@gmail.com');
+INSERT INTO DOCTOR ( DOC_NAME, U_NAME, DEP, DOC_GENDER, DOC_EXP, DOC_SALARY, DOC_PHONE, DOC_EMAIL)
+VALUES ('Ram Gupta','ram','internal','male','20 years of work experience',2000000,9345456345,'ram435@gmail.com');
+INSERT INTO DOCTOR ( DOC_NAME, U_NAME, DEP, DOC_GENDER, DOC_EXP, DOC_SALARY, DOC_PHONE, DOC_EMAIL)
+VALUES ('Selena','sela','dental','female','9 years of work experience',1700000,9324452345,'sela45@gmail.com');
+
+
+INSERT INTO LOGIN VALUES('admin','69420','ADMIN','images/admin.jpg');
+INSERT INTO LOGIN VALUES('ed12','1234','DOCTOR','images/edwin.jpg');
+INSERT INTO LOGIN VALUES('meht32','1234','DOCTOR','images/mehta.jpg');
+INSERT INTO LOGIN VALUES('jenz','1234','DOCTOR','images/jenny.jpg');
+INSERT INTO LOGIN VALUES('john','1234','DOCTOR','images/user.profile.png');
+INSERT INTO LOGIN VALUES('gloria','1234','DOCTOR','images/user.profile.png');
+INSERT INTO LOGIN VALUES('tom','1234','DOCTOR','images/user.profile.png');
+INSERT INTO LOGIN VALUES('pewds','1234','DOCTOR','images/user.profile.png');
+INSERT INTO LOGIN VALUES('ram','1234','DOCTOR','images/user.profile.png');
+INSERT INTO LOGIN VALUES('sela','1234','DOCTOR','images/user.profile.png');
+

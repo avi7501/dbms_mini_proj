@@ -42,6 +42,7 @@ con.execute('''
     DOC_PHONE NUMBER(10) NOT NULL,
     DOC_EMAIL VARCHAR2(20) NOT NULL);
 ''')
+
 con.execute('''
     CREATE TABLE IF NOT EXISTS VISITS(
     TOKEN_NO INTEGER  PRIMARY KEY AUTOINCREMENT,
@@ -54,13 +55,17 @@ con.execute('''
     DEP REFERENCES DOCTOR(DEP),
     VISIT_STATUS VARCHAR2(20),
     DIAGNOSIS  VARCHAR2(500),
-    PRESCRIPTION VARCHAR2(500),
+    PRESCRIPTION VARCHAR2(500)   
+    );
+''')
+con.execute('''
+    CREATE TABLE IF NOT EXISTS BILL(
+    TOKEN_NO REFERENCES VISITS(TOKEN_NO),
     CONSULTFEE NUMBER(10,2),
     ADDFEES NUMBER(10,2),    
     TOTALFEES NUMBER(10,2)
     );
 ''')
-
 con.close()
 
 
@@ -338,7 +343,7 @@ def vcardiology():
     uname = session["name"]
 
     cur.execute("SELECT DPLOC FROM LOGIN WHERE U_NAME='{un}'".format(un=uname))
-    acc = cur.fetchall()
+    acc = cur.fetchall() 
     for i in acc:
         dp = i[0]
     cur.execute("SELECT DOC_NAME FROM DOCTOR  WHERE DEP='cardiology';")
@@ -346,19 +351,19 @@ def vcardiology():
     return render_template('alldep.html', doc=doc, dp=dp)
 
 
-@app.route('/vgynecology')
-def vgynecology():
-    con = sqlite3.connect("database.db")
-    cur = con.cursor()
-    uname = session["name"]
+# @app.route('/vgynecology')
+# def vgynecology():
+#     con = sqlite3.connect("database.db")
+#     cur = con.cursor()
+#     uname = session["name"]
 
-    cur.execute("SELECT DPLOC FROM LOGIN WHERE U_NAME='{un}'".format(un=uname))
-    acc = cur.fetchall()
-    for i in acc:
-        dp = i[0]
-    cur.execute("SELECT DOC_NAME FROM DOCTOR  WHERE DEP='gynecology';")
-    doc = cur.fetchall()
-    return render_template('alldep.html', doc=doc, dp=dp)
+#     cur.execute("SELECT DPLOC FROM LOGIN WHERE U_NAME='{un}'".format(un=uname))
+#     acc = cur.fetchall()
+#     for i in acc:
+#         dp = i[0]
+#     cur.execute("SELECT DOC_NAME FROM DOCTOR  WHERE DEP='gynecology';")
+#     doc = cur.fetchall()
+#     return render_template('alldep.html', doc=doc, dp=dp)
 
 
 @app.route('/vopthamology')
@@ -575,11 +580,13 @@ def booked():
     PRESCRIPTION = request.form["pres"]
     CONSULTFEE = request.form["consult"]
     ADDFEES = request.form["addfee"]
-    TOTALFEES = int(CONSULTFEE)+int(ADDFEES)+20
+    TOTALFEES = int(CONSULTFEE)+int(ADDFEES)+15
     conn = sqlite3.connect("database.db", isolation_level=None)
 
-    conn.execute("UPDATE VISITS SET VISIT_STATUS='CHECKED IN',DIAGNOSIS='{d}',PRESCRIPTION='{p}',CONSULTFEE={c},ADDFEES={a},TOTALFEES={tf} WHERE TOKEN_NO={t} AND DIAGNOSIS='Pending' AND PRESCRIPTION='Pending';".format(
-        d=DIAGNOSIS, p=PRESCRIPTION, t=TOKEN_NO, c=CONSULTFEE, a=ADDFEES, tf=TOTALFEES))
+    conn.execute("UPDATE VISITS SET VISIT_STATUS='CHECKED IN',DIAGNOSIS='{d}',PRESCRIPTION='{p}' WHERE TOKEN_NO={t} AND DIAGNOSIS='Pending' AND PRESCRIPTION='Pending';".format(
+        d=DIAGNOSIS, p=PRESCRIPTION, t=TOKEN_NO))
+    conn.execute(
+        "INSERT INTO BILL (TOKEN_NO,CONSULTFEE,ADDFEES,TOTALFEES) VALUES({t},{c},{a},{tf});".format(c=CONSULTFEE, a=ADDFEES, tf=TOTALFEES, t=TOKEN_NO))
     conn.commit()
     conn.close()
     return render_template('dsuccess.html', dp=dp)
@@ -629,8 +636,10 @@ def walkin():
         DEP = ddata[0][2]
 
     VISIT_TIME = datetime.datetime.now().replace(microsecond=0)
-    cur.execute("INSERT INTO VISITS (VISIT_TIME, VISIT_TYPE, PAT_ID,PAT_NAME,DOC_ID,DOC_NAME,DEP,VISIT_STATUS,DIAGNOSIS, PRESCRIPTION,CONSULTFEE,ADDFEES,TOTALFEES) VALUES ('{vd}','Walk-in',{p},'{pn}',{d},'{dn}','{dep}','CHECKED IN','{diagn}','{pres}',{c},{a},{t});".format(
-        vd=VISIT_TIME, p=PAT_ID, pn=PAT_NAME, d=DOC_ID, dn=DOC_NAME, dep=DEP, diagn=DIAGNOSIS, pres=PRESCRIPTION, c=CONSULTFEE, a=ADDFEES, t=TOTALFEES))
+    cur.execute("INSERT INTO VISITS (VISIT_TIME, VISIT_TYPE, PAT_ID,PAT_NAME,DOC_ID,DOC_NAME,DEP,VISIT_STATUS,DIAGNOSIS, PRESCRIPTION) VALUES ('{vd}','Walk-in',{p},'{pn}',{d},'{dn}','{dep}','CHECKED IN','{diagn}','{pres}');".format(
+        vd=VISIT_TIME, p=PAT_ID, pn=PAT_NAME, d=DOC_ID, dn=DOC_NAME, dep=DEP, diagn=DIAGNOSIS, pres=PRESCRIPTION))
+    cur.execute(
+        "INSERT INTO BILL (CONSULTFEE,ADDFEES,TOTALFEES) VALUES({c},{a},{t}});".format(c=CONSULTFEE, a=ADDFEES, t=TOTALFEES))
     con.commit()
     con.close()
     return render_template('dsuccess.html', dp=dp)
@@ -709,6 +718,8 @@ def pdf_template(token_no):
     cur = con.cursor()
     cur.execute("SELECT *FROM VISITS WHERE TOKEN_NO={t}".format(t=token_no))
     vdata = cur.fetchall()
+    cur.execute("SELECT *FROM BILL WHERE TOKEN_NO={t}".format(t=token_no))
+    bdata = cur.fetchall()
     for i in vdata:
         visit_time = i[1]
         visit_type = i[2]
@@ -717,9 +728,11 @@ def pdf_template(token_no):
         dep = i[7]
         diag = i[9]
         pres = i[10]
-        consult = i[11]
-        addfee = i[12]
-        totalfee = i[13]
+
+    for i in bdata:
+        consult = i[1]
+        addfee = i[2]
+        totalfee = i[3]
     rendered = render_template('bill.html', token_no=token_no, visit_time=visit_time,
                                visit_type=visit_type, pat_name=pat_name, doc_name=doc_name, dep=dep, diag=diag, pres=pres, consult=consult, addfee=addfee, totalfee=totalfee)
     config = pdfkit.configuration(
